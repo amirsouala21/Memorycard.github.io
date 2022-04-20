@@ -1,0 +1,54 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    background: darkblue;
+    display: flex;
+}
+
+.memory-game{
+    margin: auto;
+    width: 75%;
+    height: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    perspective: 1000px; /* for the 3d */
+}
+
+.memory-card{
+    width: 23%;
+    height: 33.333%;
+    position: relative;
+    margin: 5px;
+    transform: scale(1) ;
+    transform-style: preserve-3d; /* for te 3d */
+    transition: transform .5s; /* for the rotation */
+}
+
+.memory-card:active{
+    transform: scale(.94); /* whene clicking on the card the size decrises (animation) */
+    transition: all .2s;
+}
+
+.memory-card.flip{
+    transform: rotateY(180deg); /* to flip the card */
+}
+
+img{
+    border-radius: 5px ;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: cyan;
+    padding: 5px ;
+    backface-visibility: hidden; /*every HTML element have back face (mirror) must be hidden to see the card on the opposite */
+}
+
+.front-face{
+    transform: rotateY(180deg); /* to be able to see the card under (the front-face) */
+}
